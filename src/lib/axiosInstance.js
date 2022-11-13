@@ -41,7 +41,7 @@ const getRefreshedToken = () => {
 const refreshToken = async () => {
   const newToken = await getRefreshedToken()
   console.log('refreshtokennn', newToken)
-  setToken(newToken.access)
+  setToken(newToken.data.access)
 }
 
 axiosInstance.interceptors.request.use(async (config) => {
