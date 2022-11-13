@@ -76,8 +76,8 @@ export default function HomeArticle() {
   if (loading) return <p>loading</p>
 
   return (
-    <div className="flex">
-      {data.map((article) => (<div key={article.id}>
+    <div className="flex flex-wrap">
+      {data.map((article) => (<div key={article.id} className="w-1/2 p-3">
         <Image src={"https://res.cloudinary.com/dylqfbsq2/" + article.coverImage} width={500} height={300} alt="Cover image of article"/>
         <Link href={`/post/${article.slug}`}>
             <a>

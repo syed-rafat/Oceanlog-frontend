@@ -2,8 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../styles/Home/Home.module.css'
 import Homepage from '../src/components/Home/Homepage'
+import { useAuthorStore } from '../src/store/userContext'
 
 export default function Home() {
+  const username = useAuthorStore((state) => state.username);
+  console.warn('logging username in home index')
+  console.log(username);
+
   return (
     <div>
       <Head>

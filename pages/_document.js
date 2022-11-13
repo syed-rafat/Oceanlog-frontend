@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import Navbar from '../src/components/Navbar'
-import { userStore } from '../src/lib/userContext'
+import { userStore } from '../src/store/userContext'
 
 
 // using class

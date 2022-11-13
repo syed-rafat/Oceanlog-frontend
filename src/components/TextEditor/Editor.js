@@ -126,10 +126,11 @@ export default function Editor(props) {
   // config = {editorConfiguration}
 
   return (
-    <div className="h-40 w-2/3 mx-auto">
+    <div className="h-full">
       {props.loaded ? (
         <CKEditor
           editor={ClassicEditor}
+          className="h-full"
           config={{ extraPlugins: [MyCustomUploadAdapterPlugin] }}
           data="<p>Hello from CKEditor 5!</p>"
           onReady={(editor) => {
@@ -138,6 +139,8 @@ export default function Editor(props) {
           }}
           onChange={(event, editor) => {
             const data = editor.getData();
+            props.setValue("content", data)
+            console.log('onchange eventtt')
             console.log({ event, editor, data });
           }}
           onBlur={(event, editor) => {

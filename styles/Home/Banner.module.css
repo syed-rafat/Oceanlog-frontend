@@ -2,9 +2,10 @@
     position: relative;
     display: block;
     width: auto;
-    height: auto;
+    height: 50rem;
     top: 0;
     margin: auto;
+    overflow: hidden;
 }
 .banner img {
     top: 0;

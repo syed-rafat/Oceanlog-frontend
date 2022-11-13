@@ -33,7 +33,7 @@ h1 {
   font-family: "Playfair Display", serif;
 }
 
-a {
+/* a {
   color: darkslategray;
   text-decoration: none;
   background-color: transparent;
@@ -41,7 +41,7 @@ a {
 
 a:hover {
   color: rgb(92, 148, 150);
-}
+} */
 
 
 
@@ -54,6 +54,10 @@ a:hover {
 
 div {
 	display: block;
+}
+
+p {
+  line-height: 1.875;
 }
 
 ul {
