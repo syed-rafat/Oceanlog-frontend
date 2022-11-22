@@ -23,6 +23,7 @@
 	top: 0;
 	z-index: 100;
 	display: block;
+	font-family: "";
 }
 .nav_inner {
 	height: 100%;

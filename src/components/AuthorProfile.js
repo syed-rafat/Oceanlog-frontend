@@ -1,17 +1,13 @@
-// import React from "react";
+import React, { useEffect, useState } from "react";
 // import Link from "next/link";
 
-function authorFinder(id) {
-
-    let a = fetch("http://127.0.0.1:8000/content/authors/" + "1").then(res => res.json()).then(res => res.name)
-    const author = async () => {
-        let profile = await a
-        return profile
-    }
-    return author()
-
-  }
-
-
-
-authorFinder(1)
+// export default function AuthorFinder(id) {
+  // const [user, setUser] = useState("")
+// 
+  // let a = fetch("http://127.0.0.1:8000/content/authors/" + id)
+    // .then((res) => res.json())
+    // .then((res) => setUser(res.name));
+// 
+  // return <h2>{user}</h2>;
+// }
+// 

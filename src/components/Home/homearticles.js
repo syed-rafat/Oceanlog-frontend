@@ -7,6 +7,7 @@ import Link from "next/link";
 import UserInfo from "./components/userInfo";
 import useSWR from "swr";
 import useArticleget from "../../lib/useArticleget";
+import AuthorFinder from "../AuthorProfile";
 
 // This component shows articles list in the front page
 
@@ -61,6 +62,8 @@ import useArticleget from "../../lib/useArticleget";
 export default function HomeArticle() {
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(true)
+  const [author, setAuthor] = useState("");
+
 
   useEffect(() => {
     setLoading(true);
@@ -76,15 +79,20 @@ export default function HomeArticle() {
   if (loading) return <p>loading</p>
 
   return (
-    <div className="flex flex-wrap">
-      {data.map((article) => (<div key={article.id} className="w-1/2 p-3">
-        <Image src={"https://res.cloudinary.com/dylqfbsq2/" + article.coverImage} width={500} height={300} alt="Cover image of article"/>
+    <div className="flex flex-wrap lg:flex-col lg:w-full lg:p-auto">
+      {data.map((article) => (<div key={article.id} className="w-1/2 p-3 pr-8 lg:flex-row lg:flex-wrap lg:w-fit lg:p-auto lg:m-auto">
+        <Image src={"https://res.cloudinary.com/dylqfbsq2/" + article.coverImage} width={500} height={300} className="max-w" alt="Cover image of article"/>
+        <div className="pt-3">
         <Link href={`/post/${article.slug}`}>
             <a>
-              <h1 className="title-home">{article.title}</h1>
+              <h1 className="title-home font-merriweather font-medium opacity-[.9] text-xl">{article.title}</h1>
             </a>
             </Link>
-      <p>{article.description}</p>
+            <Link href={`author/${article.author}`}>
+              <a className="font-pangram opacity-50"><UserInfo id={article.author} /></a>
+            </Link>
+      <p className="mt-4 font-inter font-extralight ">{article.description}</p>
+      </div>
       </div>
       ))}
     </div>

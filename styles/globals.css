@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PangramSans";
+  src: url("../public/fonts/PPPangramSans-NarrowSemibold.otf");
+}
+
 *,
 *:after,
 *:before {
