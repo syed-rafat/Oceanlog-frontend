@@ -1,9 +1,10 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-const baseUrl = "http://127.0.0.1:8000";
+const baseUrl = process.env.BACKEND_ROOT;
 
 export const axiosInstance = axios.create({
+  baseURL: baseUrl,
   headers: {
     // Overwrite Axios's automatically set Content-Type
     "Content-Type": "application/json",
@@ -49,7 +50,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   if (isTokenExpired()) {
     const ref = localStorage.getItem("refreshToken");
     console.log('refreshing token')
-    const res = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+    const res = await fetch(`${process.env.BACKEND_URL}/api/token/refresh/`, {
       method: "POST",
       body: JSON.stringify({ refresh: localStorage.getItem("refreshToken") }),
       headers: {

@@ -8,7 +8,7 @@ const Registration = () => {
   const setUser = useAuthorStore((state) => state.setUser);
 
   const onSubmit = async (data) => {
-    const response = await fetch("http://127.0.0.1:8000/content/user/", {
+    const response = await fetch(`${process.env.BACKEND_URL}user/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const Registration = () => {
     const res = await response.json();
     const login_obj = {"username": res.username,
   "password": data.password}
-    const get_token = await fetch("http://127.0.0.1:8000/api/token/", {
+    const get_token = await fetch(`${process.env.BACKEND_ROOT}/api/token/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

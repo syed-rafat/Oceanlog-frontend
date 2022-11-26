@@ -70,7 +70,7 @@ export default function Login() {
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
       console.warn("authorizer is executed, data here");
-      fetch("http://127.0.0.1:8000/content/user-info/", {
+      fetch(`${process.env.BACKEND_URL}user-info/`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${data.access}`,

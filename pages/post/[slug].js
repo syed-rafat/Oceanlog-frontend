@@ -3,7 +3,7 @@ import styles from '../../styles/post/singleslug.module.css';
 import parse from 'html-react-parser';
 
 export async function getStaticPaths(context) {
-  const response = await fetch(`http://127.0.0.1:8000/content/articles/`);
+  const response = await fetch(`${process.env.BACKEND_URL}articles/`);
   const data = await response.json();
   const slugs = data.map((article) => article.slug);
   const paths = slugs.map((slug) => ({ params: { slug: slug } }));
@@ -13,11 +13,11 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps({ params }) {
   const response = await fetch(
-    `http://127.0.0.1:8000/content/articles/${params.slug}`
+    `${process.env.BACKEND_URL}articles/${params.slug}`
   );
   const data = await response.json();
   const res = await fetch(
-    `http://127.0.0.1:8000/content/authors/${data.author}`
+    `${process.env.BACKEND_URL}authors/${data.author}`
   );
   const author = await res.json();
 

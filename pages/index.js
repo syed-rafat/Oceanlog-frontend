@@ -8,6 +8,7 @@ export default function Home() {
   const username = useAuthorStore((state) => state.username);
   console.warn('logging username in home index')
   console.log(username);
+  console.log(`${process.env.BACKEND_URL}author/`)
 
   return (
     <div>

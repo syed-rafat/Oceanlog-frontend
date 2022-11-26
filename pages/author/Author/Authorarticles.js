@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import UserInfo from "../../../src/components/Home/components/userInfo";
 
+// TODO: remove hardcoded cloudinary link
+
 export default function Authorarticles(props) {
   const pid = props.id;
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const articlesLink = `http://127.0.0.1:8000/content/user-articles/${props.id}/`;
+  const articlesLink = process.env.BACKEND_URL + "author/" + props.id + "/";
 
   useEffect((_) => {
     axios

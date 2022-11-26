@@ -29,7 +29,7 @@ export default function WritePost() {
     console.log(formData, "Formdata");
 
 
-    axiosInstance.post('http://127.0.0.1:8000/content/articles/', formData, {
+    axiosInstance.post('content/articles/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

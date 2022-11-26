@@ -14,7 +14,7 @@ export default function AuthorProfile() {
 
   const router = useRouter();
   const { pid } = router.query;
-  const profileRoute = "http://127.0.0.1:8000/content/authors/" + pid;
+  const profileRoute = process.env.BACKEND_URL + "authors/" + pid;
   // const articlesLink = `http://127.0.0.1:8000/content/user-articles/${pid}/`;
 
   // const base = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTY4Mjc1LCJpYXQiOjE2Njc1Njc5NzUsImp0aSI6IjA4ZWViNjdjYWQxMzQ2NThiOGU3NGI1ZmVjNjgyYTVkIiwidXNlcl9pZCI6MX0.HCxcpQbTbXlJh-VjmYTyaSDXczfXYahNO-pttx3qnEM"
@@ -28,7 +28,7 @@ export default function AuthorProfile() {
       if (pid) {
         console.log(axiosInstance, "AxiosInstance")
         axiosInstance
-          .get(profileRoute)
+          .get(`content/authors/${pid}`)
           .then((res) => setData(res.data))
           .then((_) => setLoader(false))
           .catch((err) => console.log("error", err));

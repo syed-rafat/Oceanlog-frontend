@@ -14,7 +14,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
  */
 export default function useArticleget(id) {
     console.log(id)
-    const link = "http://127.0.0.1:8000/content/articles/oceanlog/"
+    const link = `${process.env.BACKEND_URL}articles/oceanlog/`
     const {data, error} = useSWR(link, fetcher)
     console.log(data)
     return {
