@@ -2,6 +2,8 @@ import React from "react";
 import styles from '../../styles/post/singleslug.module.css';
 import parse from 'html-react-parser';
 
+// TODO: fix data fetching, build is not working.
+
 export async function getStaticPaths(context) {
   const response = await fetch(`${process.env.BACKEND_URL}articles/`);
   const data = await response.json();
