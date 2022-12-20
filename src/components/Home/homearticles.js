@@ -10,6 +10,7 @@ import useArticleget from "../../lib/useArticleget";
 import AuthorFinder from "../AuthorProfile";
 
 // This component shows articles list in the front page
+//TODO: remove hardcoded link
 
 /**
  *@name {HomeArticles}
@@ -25,13 +26,13 @@ export default function HomeArticle() {
   const [author, setAuthor] = useState("");
 
   const url = process.env.BACKEND_URL
-  const listurl = process.env.BACKEND_URL
+  const listurl = process.env.BACKEND_URL + "list"
 
   useEffect(() => {
     // setLoading(true);
     console.log(url)
-    fetch(listurl)
-      .then((res) => console.log(url, "res", res))
+    fetch("http://oclogbackend.azurewebsites.net/content/list")
+    .then((res) => res.json())
       .then((data) => {
         setData(data.results);
         setLoading(false);

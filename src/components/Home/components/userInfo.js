@@ -11,6 +11,6 @@ export default function UserInfo(props) {
     const {user, isLoading, isError} = useUserget(props.id)
 
     if (isLoading) return <h6>Loading..</h6>
-    // console.log(user)
+    console.log(user)
     return <h4>by {user.name}</h4>
 }

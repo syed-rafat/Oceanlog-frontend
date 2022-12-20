@@ -2,6 +2,7 @@ import useSWR from "swr";
 
 // takes id of author and fetches data
 
+// TODO: remove hardcoded link and use env variable
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -14,7 +15,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
  */
 export default function useUserget(id) {
     console.log(id)
-    const link = process.env.BACKEND_URL + "authors/" + id
+    const link = "http://oclogbackend.azurewebsites.net/content/" + "authors/" + id
     const {data, error} = useSWR(link, fetcher)
 
     return {
