@@ -24,15 +24,18 @@ export default function HomeArticle() {
   const [loading, setLoading] = useState(true)
   const [author, setAuthor] = useState("");
 
+  const url = process.env.BACKEND_URL
+  const listurl = process.env.BACKEND_URL
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`${process.env.BACKEND_URL}list`)
-      .then((res) => res.json())
+    // setLoading(true);
+    console.log(url)
+    fetch(listurl)
+      .then((res) => console.log(url, "res", res))
       .then((data) => {
         setData(data.results);
         setLoading(false);
-        console.log(data.results, "data.results >");
+        console.log(data, "data.results >");
       });
   }, []);
 

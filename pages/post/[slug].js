@@ -4,8 +4,10 @@ import parse from 'html-react-parser';
 
 // TODO: fix data fetching, build is not working.
 
+const articleURL = process.env.BACKEND_URL + "articles/";
+
 export async function getStaticPaths(context) {
-  const response = await fetch(`${process.env.BACKEND_URL}articles/`);
+  const response = await fetch(articleURL);
   const data = await response.json();
   const slugs = data.map((article) => article.slug);
   const paths = slugs.map((slug) => ({ params: { slug: slug } }));
@@ -15,7 +17,7 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps({ params }) {
   const response = await fetch(
-    `${process.env.BACKEND_URL}articles/${params.slug}`
+    articleURL + `/${params.slug}`
   );
   const data = await response.json();
   const res = await fetch(
@@ -36,6 +38,7 @@ export default function ArticleSingle({ allData }) {
   const article = allData.data;
   const author = allData.author;
 
+  console.log(`${process.env.BACKEND_URL}articles/`)
 
   return (
     <article id={styles.article}>
