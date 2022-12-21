@@ -15,7 +15,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
  */
 export default function useUserget(id) {
     console.log(id)
-    const link = "http://oclogbackend.azurewebsites.net/content/" + "authors/" + id
+    const link = "https://oclogbackend.azurewebsites.net/content/" + "authors/" + id
     const {data, error} = useSWR(link, fetcher)
 
     return {

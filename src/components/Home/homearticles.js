@@ -31,7 +31,7 @@ export default function HomeArticle() {
   useEffect(() => {
     // setLoading(true);
     console.log(url);
-    axios.get("http://oclogbackend.azurewebsites.net/content/list")
+    axios.get("https://oclogbackend.azurewebsites.net/content/list")
       // .then((res) => res.json())
       .then((res) => {
         setData(res.data.results);
