@@ -36,6 +36,8 @@ export default function Login() {
   const accessToken = useAuthorStore((state) => state.acessToken);
   const setToken = useAuthorStore((state) => state.setToken);
 
+  const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+
   //login function that fetches the api, save them in localstorage then set global variable in store
   const login = async (data) => {
     try {
@@ -43,7 +45,7 @@ export default function Login() {
         'Content-Type': 'application/json',
       }
       const res = await axios.post(
-        "http://localhost:8000/api/token/",
+        tokenurl,
         JSON.stringify(data),
         {
         headers: headers, }
@@ -66,7 +68,6 @@ export default function Login() {
 
   function authorizer(data) {
     if (typeof window !== "undefined") {
-      console.log("data passed in authorizer function", data);
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
       console.warn("authorizer is executed, data here");

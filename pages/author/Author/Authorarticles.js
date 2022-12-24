@@ -18,6 +18,8 @@ export default function Authorarticles(props) {
       .get(articlesLink)
       .then((res) => setData(res.data.articles))
       .then((res) => setLoading(false));
+
+      console.log("Article fetching of author is working", data)
   }, []);
 
   if (loading) {
