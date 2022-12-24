@@ -15,7 +15,7 @@ export default function AuthorProfile() {
 
   const router = useRouter();
   const { pid } = router.query;
-  const profileRoute = process.env.NEXT_PUBLIC_BACKEND_URL + "authors/" + pid;
+  const profileRoute = process.env.BACKEND_URL + "authors/" + pid;
   console.log(profileRoute, "profileRoute");
   // const articlesLink = `http://127.0.0.1:8000/content/user-articles/${pid}/`;
 
@@ -28,7 +28,6 @@ export default function AuthorProfile() {
   useEffect(
     (_) => {
       if (pid) {
-        console.log(axiosInstance, "AxiosInstance")
         axios
           .get(profileRoute)
           .then((res) => setData(res.data))
