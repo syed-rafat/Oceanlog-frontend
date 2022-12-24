@@ -44,7 +44,8 @@ export default function Home({data}) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch("https://oclogbackend.azurewebsites.net/content/list")
+  const listurl = process.env.NEXT_PUBLIC_BACKEND_URL + "list";
+  const res = await fetch(listurl)
   const articles = await res.json()
   const data = articles.results
 

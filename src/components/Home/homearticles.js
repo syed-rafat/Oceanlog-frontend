@@ -26,8 +26,8 @@ export default function HomeArticle({ data }) {
   console.log("DATaaaaaaaaaaaaaaaaaaaaaaaaaaaaa in homearticle")
   console.log(data)
 
-  const url = process.env.BACKEND_URL;
-  const listurl = process.env.BACKEND_URL + "list";
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const listurl = process.env.NEXT_PUBLIC_BACKEND_URL + "list";
 
   // useEffect(() => {
   //   // setLoading(true);
