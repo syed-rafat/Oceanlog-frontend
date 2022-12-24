@@ -6,7 +6,10 @@ import useSWR from "swr";
 import HomeSidebar from "../Sidebar/HomeSidebar";
 // Full Home page layout
 
-export default function Homepage() {
+export default function Homepage({data}) {
+
+    console.log("data in homepage")
+    console.log(data)
 
     return (
         <div className={styles.main}>
@@ -21,7 +24,7 @@ export default function Homepage() {
                 <div className={styles.inner_container}>
                     <section className="relative flex flex-auto flex-row flex-nowrap lg:flex-col">
                         <div className="w-[calc(100%-400px)] h-[300%] flex flex-auto flex-wrap ml-auto relative mb-16 mr-16 xl:m-2 md:p-2 lg:w-full lg:">
-                            <HomeArticles />
+                            <HomeArticles data={data}/>
 
                         </div>
                         {/* divider */}

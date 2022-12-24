@@ -12,9 +12,11 @@ export default function AuthorProfile() {
   const [loading, setLoader] = useState(true);
   // const [articles, setArticles] = useState("");
 
+
   const router = useRouter();
   const { pid } = router.query;
-  const profileRoute = process.env.BACKEND_URL + "authors/" + pid;
+  const profileRoute = process.env.NEXT_PUBLIC_BACKEND_URL + "authors/" + pid;
+  console.log(profileRoute, "profileRoute");
   // const articlesLink = `http://127.0.0.1:8000/content/user-articles/${pid}/`;
 
   // const base = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTY4Mjc1LCJpYXQiOjE2Njc1Njc5NzUsImp0aSI6IjA4ZWViNjdjYWQxMzQ2NThiOGU3NGI1ZmVjNjgyYTVkIiwidXNlcl9pZCI6MX0.HCxcpQbTbXlJh-VjmYTyaSDXczfXYahNO-pttx3qnEM"
@@ -27,8 +29,8 @@ export default function AuthorProfile() {
     (_) => {
       if (pid) {
         console.log(axiosInstance, "AxiosInstance")
-        axiosInstance
-          .get(`content/authors/${pid}`)
+        axios
+          .get(profileRoute)
           .then((res) => setData(res.data))
           .then((_) => setLoader(false))
           .catch((err) => console.log("error", err));

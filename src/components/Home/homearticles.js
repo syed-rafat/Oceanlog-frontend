@@ -20,27 +20,31 @@ import axios from "axios";
 
 // building home article component from ground up with new api
 
-export default function HomeArticle() {
-  const [data, setData] = useState("");
-  const [loading, setLoading] = useState(true);
+
+export default function HomeArticle({ data }) {
   const [author, setAuthor] = useState("");
+  console.log("DATaaaaaaaaaaaaaaaaaaaaaaaaaaaaa in homearticle")
+  console.log(data)
 
   const url = process.env.BACKEND_URL;
   const listurl = process.env.BACKEND_URL + "list";
 
-  useEffect(() => {
-    // setLoading(true);
-    console.log(url);
-    axios.get("https://oclogbackend.azurewebsites.net/content/list")
-      // .then((res) => res.json())
-      .then((res) => {
-        setData(res.data.results);
-        setLoading(false);
-        console.log(data, "data.results >");
-      });
-  }, []);
+  // useEffect(() => {
+  //   // setLoading(true);
+  //   console.log(url);
+  //   axios.get("https://oclogbackend.azurewebsites.net/content/list")
+  //     // .then((res) => res.json())
+  //     .then((res) => {
+  //       setData(res.data.results);
+  //       setLoading(false);
+  //       console.log(data, "data.results >");
+  //     });
+  // }, []);
 
-  if (loading) return <p>loading</p>;
+  // if (loading) return <p>loading</p>;
+
+  // if (!data) return <p>loading</p>;
+  // if (data) return <p>loading</p>;
 
   return (
     <div className="flex flex-wrap lg:flex-col lg:w-full lg:p-auto">
@@ -78,3 +82,4 @@ export default function HomeArticle() {
     </div>
   );
 }
+

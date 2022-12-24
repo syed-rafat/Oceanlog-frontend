@@ -4,13 +4,16 @@ import Image from 'next/image'
 import Homepage from '../src/components/Home/Homepage'
 import { useAuthorStore } from '../src/store/userContext'
 
-export default function Home() {
+export default function Home({data}) {
   const username = useAuthorStore((state) => state.username);
-  console.warn('logging username in home index')
-  console.log(username);
-  const url = process.env.BACKEND_URL
-  console.log(`${process.env.BACKEND_URL}`)
-  console.log(`${process.env.BACKEND_URL}authors/`)
+  // console.warn('logging username in home index')
+  // console.log(username);
+  // const url = process.env.BACKEND_URL
+  // console.log(`${process.env.BACKEND_URL}`)
+  // console.log(`${process.env.BACKEND_URL}authors/`)
+
+  console.log("data from index.js")
+  console.log(data)
 
   return (
     <div>
@@ -21,7 +24,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Homepage />
+        <Homepage data={data}/>
       </main>
 
       <footer>
@@ -36,4 +39,18 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch("https://oclogbackend.azurewebsites.net/content/list")
+  const articles = await res.json()
+  const data = articles.results
+
+  console.log("data from getServerSideProps")
+  console.log(data)
+
+  // Pass data to the page via props
+  return { props: { data } }
 }
