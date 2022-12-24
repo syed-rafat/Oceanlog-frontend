@@ -10,6 +10,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 //trying the adapter mentioned in doc
 
+const imageurl = process.env.BACKEND_URL + "image/";
 class MyUploadAdapter {
   constructor( loader ) {
       // The file loader instance to use during the upload.

@@ -11,7 +11,7 @@ export default function Authorarticles(props) {
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const articlesLink = process.env.BACKEND_URL + "author/" + props.id + "/";
+  const articlesLink = process.env.BACKEND_URL + "authors/" + props.id;
 
   useEffect((_) => {
     axios
