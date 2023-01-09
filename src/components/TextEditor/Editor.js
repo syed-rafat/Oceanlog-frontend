@@ -42,7 +42,7 @@ class MyUploadAdapter {
       // integration to choose the right communication channel. This example uses
       // a POST request with JSON as a data structure but your configuration
       // could be different.
-      xhr.open( 'POST', 'http://127.0.0.1:8000/content/image/', true );
+      xhr.open( 'POST', imageurl, true );
       xhr.responseType = 'json';
   }
 
