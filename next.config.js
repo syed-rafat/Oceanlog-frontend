@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    BACKEND_URL: "https://oclogbackend.azurewebsites.net/content/",
-    BACKEND_ROOT: "https://oclogbackend.azurewebsites.net",
+    // For now adding local db
+    // BACKEND_URL: "https://oclogbackend.azurewebsites.net/content/",
+    // BACKEND_ROOT: "https://oclogbackend.azurewebsites.net",
+    BACKEND_URL: "http://localhost:8000/content/",
+    ROOT: "http://localhost:8000",
   },
   reactStrictMode: true,
   swcMinify: true,
