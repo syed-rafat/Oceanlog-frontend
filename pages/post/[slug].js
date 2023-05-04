@@ -7,17 +7,23 @@ import parse from 'html-react-parser';
 const articleURL = process.env.BACKEND_URL + "articles/";
 
 export async function getStaticPaths(context) {
+  console.log(articleURL)
   const response = await fetch(articleURL);
   const data = await response.json();
   const slugs = data.map((article) => article.slug);
+  console.log(slugs)
   const paths = slugs.map((slug) => ({ params: { slug: slug } }));
 
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
+
+  console.log('getstaticprops')
+  console.log(articleURL + `/${params.slug}`)
+  console.log('getstaticpropssssssss 2')
   const response = await fetch(
-    articleURL + `/${params.slug}`
+    articleURL + `${params.slug}`
   );
   const data = await response.json();
   const res = await fetch(
@@ -25,7 +31,9 @@ export async function getStaticProps({ params }) {
   );
   const author = await res.json();
 
-  const allData = { data: data, author: author };
+  console.log(data, "data from getstaticprops")
+
+  const allData = { data: data, author: "author" };
 
   return {
     props: {
@@ -36,7 +44,7 @@ export async function getStaticProps({ params }) {
 
 export default function ArticleSingle({ allData }) {
   const article = allData.data;
-  const author = allData.author;
+  // const author = allData.author;
 
   console.log(`${process.env.BACKEND_URL}articles/`)
 

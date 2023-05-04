@@ -26,7 +26,7 @@ export default function HomeArticle({ data }) {
   console.log("DATaaaaaaaaaaaaaaaaaaaaaaaaaaaaa in homearticle")
   console.log(data)
 
-  const url = process.env.ACKEND_URL;
+  const url = process.env.BACKEND_URL;
   const listurl = process.env.BACKEND_URL + "list";
 
   // useEffect(() => {
@@ -70,7 +70,7 @@ export default function HomeArticle({ data }) {
             </Link>
             <Link href={`author/${article.author}`}>
               <a className="font-pangram opacity-50">
-                <UserInfo id={article.author} />
+                <h4 id={article.author}> {article.author} </h4>
               </a>
             </Link>
             <p className="mt-4 font-inter font-extralight ">

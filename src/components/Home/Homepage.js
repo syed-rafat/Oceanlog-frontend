@@ -8,7 +8,7 @@ import HomeSidebar from "../Sidebar/HomeSidebar";
 
 export default function Homepage({data}) {
 
-    console.log("data in homepage")
+    console.log("data passed into homepage components")
     console.log(data)
 
     return (
