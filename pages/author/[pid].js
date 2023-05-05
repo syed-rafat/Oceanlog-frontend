@@ -10,13 +10,12 @@ import Authorarticles from "./Author/Authorarticles";
 export default function AuthorProfile() {
   const [data, setData] = useState(0);
   const [loading, setLoader] = useState(true);
-  // const [articles, setArticles] = useState("");
+
 
 
   const router = useRouter();
   const { pid } = router.query;
   const profileRoute = process.env.BACKEND_URL + "authors/" + pid;
-  console.log(profileRoute, "profileRoute");
   // const articlesLink = `http://127.0.0.1:8000/content/user-articles/${pid}/`;
 
   // const base = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTY4Mjc1LCJpYXQiOjE2Njc1Njc5NzUsImp0aSI6IjA4ZWViNjdjYWQxMzQ2NThiOGU3NGI1ZmVjNjgyYTVkIiwidXNlcl9pZCI6MX0.HCxcpQbTbXlJh-VjmYTyaSDXczfXYahNO-pttx3qnEM"

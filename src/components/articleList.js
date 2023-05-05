@@ -24,6 +24,8 @@ import axios from "axios";
 export default function HomeArticle({ data }) {
   const [author, setAuthor] = useState("");
 
+  const url = process.env.BACKEND_URL;
+  const listurl = process.env.BACKEND_URL + "list";
 
   // useEffect(() => {
   //   // setLoading(true);
