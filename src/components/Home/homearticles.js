@@ -70,7 +70,7 @@ export default function HomeArticle({ data }) {
             </Link>
             <Link href={`author/${article.author}`}>
               <a className="font-pangram opacity-50">
-                <h4 id={article.author}> {article.author} </h4>
+                <h4 id={article.author}> {article.author_name} </h4>
               </a>
             </Link>
             <p className="mt-4 font-inter font-extralight ">
