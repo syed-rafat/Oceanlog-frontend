@@ -20,7 +20,6 @@ import axios from "axios";
 
 // building home article component from ground up with new api
 
-
 export default function HomeArticle({ data }) {
   const [author, setAuthor] = useState("");
 
@@ -80,4 +79,3 @@ export default function HomeArticle({ data }) {
     </div>
   );
 }
-

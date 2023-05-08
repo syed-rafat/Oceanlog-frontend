@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from "next/head";
+import Image from "next/image";
 // import styles from '../styles/Home/Home.module.css'
-import Homepage from '../src/components/Home/Homepage'
-import { useAuthorStore } from '../src/store/userContext'
+import Homepage from "../src/components/Home/Homepage";
+import { useAuthorStore } from "../src/store/userContext";
 
-export default function Home({data}) {
+export default function Home({ data }) {
   const username = useAuthorStore((state) => state.username);
   // console.warn('logging username in home index')
   // console.log(username);
@@ -12,8 +12,8 @@ export default function Home({data}) {
   // console.log(`${process.env.BACKEND_URL}`)
   // console.log(`${process.env.BACKEND_URL}authors/`)
 
-  console.log("data from index.js")
-  console.log(data)
+  console.log("data from index.js");
+  console.log(data);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function Home({data}) {
       </Head>
 
       <main>
-        <Homepage data={data}/>
+        <Homepage data={data} />
       </main>
 
       <footer>
@@ -32,26 +32,25 @@ export default function Home({data}) {
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
-          id='accent-lime-300'
+          id="accent-lime-300"
         >
           Powered by Rafat@SUST
         </a>
       </footer>
     </div>
-  )
+  );
 }
-
 
 export async function getServerSideProps() {
   // Fetch data from external API
   const listurl = process.env.BACKEND_URL + "list";
-  const res = await fetch(listurl)
-  const articles = await res.json()
-  const data = articles.results
+  const res = await fetch(listurl);
+  const articles = await res.json();
+  const data = articles.results;
 
-  console.log("data from getServerSideProps")
-  console.log(data)
+  console.log("data from getServerSideProps");
+  console.log(data);
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data } };
 }

@@ -16,17 +16,15 @@ const Registration = () => {
       body: JSON.stringify(data), //need to use JSON.stringify() before sending data
     });
     const res = await response.json();
-    const login_obj = {"username": res.username,
-  "password": data.password}
+    const login_obj = { username: res.username, password: data.password };
     const get_token = await fetch(`${process.env.BACKEND_ROOT}/api/token/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(login_obj), //need to use JSON.stringify() before sending data
-    }
-    )
-    const token = await get_token.json()
+    });
+    const token = await get_token.json();
     console.log("login function is working and global varibale set", res);
     setUser(token.access);
 
