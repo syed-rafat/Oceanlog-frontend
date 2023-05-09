@@ -5,7 +5,10 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 
+// TODO: Add dictionary with separate image for all categories
+
 export default function CategoryList() {
+
   const [data, setData] = useState(0);
   const [loading, setLoader] = useState(true);
 
@@ -36,8 +39,14 @@ export default function CategoryList() {
   }
 
   return (
-    <div className="m-40 h-3/5 w-full border relative">
-      <Image src="/sst.svg" layout="fill" className="w-auto h-auto relative" />
+    <div className="p-0 m-0 relative flex flex-col">
+      {/* Banner */}
+      <div className="w-full h-34">
+      <img src="/Earth_from_satellite1.jpg" className="object-contain w-full" />
+      </div>
+      {/* Content */}
+      <div className="outer_container">
+      <div className="w-full mx-auto relative max-w-[1160px]">
       <div className="flex flex-wrap lg:flex-col lg:w-full lg:p-auto relative">
         {data.map((article) => (
           <div
@@ -70,6 +79,8 @@ export default function CategoryList() {
             </div>
           </div>
         ))}
+      </div>
+      </div>
       </div>
     </div>
   );

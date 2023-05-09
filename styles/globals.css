@@ -78,3 +78,11 @@ footer {
 	bottom: 0px;
 }
 
+@media (min-width: 34em){
+  .outer_container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      margin-top: 3rem;
+      position: relative;
+  }
+  }

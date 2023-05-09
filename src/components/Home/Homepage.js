@@ -19,7 +19,7 @@ export default function Homepage({data}) {
 
             {/*Outer container of rest of the page content section*/}
             <div className={styles.outer_container}>
-                <div className={styles.inner_container}>
+                <div className="w-full mx-auto relative max-w-[1160px]">
                     <section className="relative flex flex-auto flex-row flex-nowrap lg:flex-col">
                         <div className="w-[calc(100%-400px)] h-[300%] flex flex-auto flex-wrap ml-auto relative mb-16 mr-16 xl:m-2 md:p-2 lg:w-full lg:">
                             <HomeArticles data={data}/>
