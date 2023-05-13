@@ -21,6 +21,15 @@ export default function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  if (showModal) {
+    console.log("Modal showed")
+  }
+  
   const handleScroll = () => {
     if (window !== undefined) {
       const currentScrollPos = window.scrollY;
@@ -36,6 +45,12 @@ export default function Navbar() {
     }
   };
 
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: add login functionality
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -44,6 +59,21 @@ export default function Navbar() {
 
   return (
     <div className="relative top-0">
+      {showModal && (
+        <div className="w-full h-full flex justify-center bg-opacity-70 bg-black fixed z-50">
+         <div className="w-96 h-96 mx-auto z-50 fixed mt-10 bg-white shadow-white border shadow-sm p-0 flex flex-col justify-center">
+          <div className="mx-auto">
+            <h1>OceanLog</h1>
+          </div>
+          <div className="mx-auto">
+            <h1>Enter your Email address</h1>
+          </div>
+          
+         </div>
+         </div>
+      )}
+
+
       <header className="h-[80px] max-w-[1220px] mx-auto top-0 left-0 right-0 bottom-0 fixed block transition-top transition transition-duration-[0.4s] z-40 font-openSans">
         <div className="relative h-full">
           <section className="bg-white flex h-full justify-between shadow-lg 34em:h-[80px] 34em:px-[2rem]">
@@ -103,14 +133,13 @@ export default function Navbar() {
                     <RiSearch2Line size={22} />
                   </button>
                 </li>
+
+                {/* Login Button */}
                 <li className="text-center items-center flex relative h-full ml-[0.5em] mr-[0.5em] justify-center">
-                  <Link href="/login/">
-                    <a>
-                      <button className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer">
+                      <button className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer" 
+                      onClick={()=> setShowModal(true)}>
                         <AiOutlineUser size={28} />
                       </button>
-                    </a>
-                  </Link>
                 </li>
                 {/* hamburger menu */}
                 <li className="flex relative items-center left-0 right-0 h-full ml-[0.5em] mr-[0.5em] justify-center">
