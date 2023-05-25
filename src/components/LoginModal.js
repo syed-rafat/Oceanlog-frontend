@@ -11,6 +11,7 @@ import Link from "next/link";
 import axios from "axios"
 import getUserId from "../lib/getUser";
 import Image from "next/image";
+import { Toaster, toast } from "react-hot-toast";
 // const axiosInstance = dynamic(() => import('../src/lib/axiosInstance'), {
 //   suspense: true,
 // })
@@ -35,37 +36,18 @@ export default function LoginModal({closeModal}) {
   const accessToken = useAuthorStore((state) => state.acessToken);
   const setToken = useAuthorStore((state) => state.setToken);
 
-  const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+  // const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+  // const tokenurl = process.env.BACKEND_ROOT + "/api/token/"
+  const tokenurl = "http://127.0.0.1:8000/api/token/"
 
   //login function that fetches the api, save them in localstorage then set global variable in store
-  const login = async (data) => {
-    try {
-      const headers = {
-        'Content-Type': 'application/json',
-      }
-      const res = await axios.post(
-        tokenurl,
-        JSON.stringify(data),
-        {
-        headers: headers, }
-      );
-      console.log('res.data', res.data);
-    
-    console.log("login function is working and global varibale set", res);
-    authorizer(res.data);
-
-    if (res.data.access) {
-      setLogged(true);
-    }
-    // console.warn(username);
-    // console.warn(user);
-  } catch(error){
-    console.log('error', error)
-  }}
   
 
 
   function authorizer(data) {
+    if (data.detail) {
+      toast.error("Wrong credentials")
+    }
     if (typeof window !== "undefined") {
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
@@ -81,6 +63,35 @@ export default function LoginModal({closeModal}) {
 
 
   const onSubmit = (d) => {
+
+
+    const login = async (data) => {
+      try {
+        const headers = {
+          'Content-Type': 'application/json',
+        }
+        const res = await axios.post(
+          tokenurl,
+          JSON.stringify(data),
+          {
+          headers: headers, }
+        )
+
+        console.log('res.data', res.data);
+      
+      console.log("login function is working and global varibale set", res);
+      authorizer(res.data);
+  
+      if (res.data.access) {
+        setLogged(true);
+      }
+      // console.warn(username);
+      // console.warn(user);
+    } catch(error){
+      console.log('error', error)
+      toast.error('Wrong credentials entered.');
+    }}
+    
     login(d);
 
     // console.log(d)
@@ -100,6 +111,8 @@ export default function LoginModal({closeModal}) {
   // const bctoken = localStorage.getItem("refreshtoken")
 
   return (
+    <div>
+    <form onSubmit={handleSubmit(onSubmit)} >
     <div className="w-full h-full flex justify-center bg-opacity-90 bg-black fixed z-50">
           <div className="w-[25rem] h-[30rem] mx-auto z-50 fixed mt-10 bg-white shadow-white border shadow-sm p-0 flex flex-col justify-items-start">
             {/* Cross button */}
@@ -107,8 +120,8 @@ export default function LoginModal({closeModal}) {
               className="absolute top-0 right-0 h-8 w-8"
               onClick={closeModal}
             >
-              <div class="absolute h-0.5 w-4 bg-gray-500 transform rotate-45 top-4"></div>
-              <div class="absolute h-0.5 w-4 bg-gray-500 transform -rotate-45 bottom-4"></div>
+              <div className="absolute h-0.5 w-4 bg-gray-500 transform rotate-45 top-4"></div>
+              <div className="absolute h-0.5 w-4 bg-gray-500 transform -rotate-45 bottom-4"></div>
             </button>
 
             <div className="mx-auto mb-3 pt-10">
@@ -142,6 +155,9 @@ export default function LoginModal({closeModal}) {
             ></input>
             <button className="px-4 py-2 border-2 m-auto border-gray-900">Log in</button>
           </div>
+        </div>
+        </form>
+        <Toaster />
         </div>
   );
 }

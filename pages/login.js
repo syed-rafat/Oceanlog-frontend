@@ -36,21 +36,23 @@ export default function Login() {
   const accessToken = useAuthorStore((state) => state.acessToken);
   const setToken = useAuthorStore((state) => state.setToken);
 
-  const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+  // const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+  const tokenurl = "http://127.0.0.1:8000/api/token/"
 
   //login function that fetches the api, save them in localstorage then set global variable in store
   const login = async (data) => {
+    console.log(data)
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-      }
-      const res = await axios.post(
-        tokenurl,
-        JSON.stringify(data),
-        {
-        headers: headers, }
-      );
-      console.log('res.data', res.data);
+      // const headers = {
+      //   'Content-Type': 'application/json',
+      // }
+      // const res = await axios.post(
+      //   tokenurl,
+      //   JSON.stringify(data),
+      //   {
+      //   headers: headers, }
+      // );
+      // console.log('res.data', res.data);
     
     console.log("login function is working and global varibale set", res);
     authorizer(res.data);
@@ -82,6 +84,7 @@ export default function Login() {
 
 
   const onSubmit = (d) => {
+    console.log(d)
     login(d);
 
     // console.log(d)

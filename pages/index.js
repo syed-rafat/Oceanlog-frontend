@@ -6,14 +6,6 @@ import { useAuthorStore } from "../src/store/userContext";
 
 export default function Home({ data }) {
   const username = useAuthorStore((state) => state.username);
-  // console.warn('logging username in home index')
-  // console.log(username);
-  // const url = process.env.BACKEND_URL
-  // console.log(`${process.env.BACKEND_URL}`)
-  // console.log(`${process.env.BACKEND_URL}authors/`)
-
-  console.log("data from index.js");
-  console.log(data);
 
   return (
     <div>
@@ -47,9 +39,6 @@ export async function getServerSideProps() {
   const res = await fetch(listurl);
   const articles = await res.json();
   const data = articles.results;
-
-  console.log("data from getServerSideProps");
-  console.log(data);
 
   // Pass data to the page via props
   return { props: { data } };

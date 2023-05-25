@@ -68,6 +68,7 @@ export default function Navbar() {
 
       <header className="h-[80px] max-w-[1220px] mx-auto top-0 left-0 right-0 bottom-0 fixed block transition-top transition transition-duration-[0.4s] z-40 font-openSans">
         <div className="relative h-full">
+          
           <section className="bg-white flex h-full justify-between shadow-lg 34em:h-[80px] 34em:px-[2rem]">
             <div className="flex h-full relative ml-[20px]">
               <Link href="/">
