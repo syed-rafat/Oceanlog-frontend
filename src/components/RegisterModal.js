@@ -51,7 +51,7 @@ export default function RegisterModal({ closeModal }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data), //need to use JSON.stringify() before sending data
+      body: JSON.stringify(data),
     });
     const res = await response.json();
     console.log(res, "result of register function");
@@ -73,10 +73,7 @@ export default function RegisterModal({ closeModal }) {
         if (res.data.access) {
           setLogged(true);
         }
-        // console.warn(username);
-        // console.warn(user);
       } catch (error) {
-        console.log(error);
         toast.error("Wrong credentials entered.");
       }
     };

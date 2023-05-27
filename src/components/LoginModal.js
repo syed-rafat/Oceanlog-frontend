@@ -25,19 +25,16 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   } = useForm();
   const [user, setUser] = useState(null);
 
-  // const setUser = useAuthorStore((state) => state.setUser);
   const username = useAuthorStore((state) => state.username);
-  // const user = useAuthorStore((state) => state.user);
 
   const [logged, setLogged] = useState(false);
 
   const accessToken = useAuthorStore((state) => state.acessToken);
   const setToken = useAuthorStore((state) => state.setToken);
 
-  // const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
   const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
 
-  //login function that fetches the api, save them in localstorage then set global variable in store
+  //login function that fetches the api, save them in localstorage then set global variable in store via authorizer
 
   function authorizer(data) {
     if (data.detail) {
@@ -73,16 +70,12 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         if (res.data.access) {
           setLogged(true);
         }
-        // console.warn(username);
-        // console.warn(user);
       } catch (error) {
         toast.error("Wrong credentials entered.");
       }
     };
 
     login(d);
-
-    // console.log(d)
   };
 
   useEffect(() => {
@@ -92,11 +85,6 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
       Router.push(`/author/${id}/`);
     }
   });
-  // setToken(data.access, data.refresh)
-  // const actoken = "bearer" + localStorage.getItem("accesstoken")
-  // console.log(actoken)
-
-  // const bctoken = localStorage.getItem("refreshtoken")
 
   return (
     <div className="transition-all">
@@ -144,7 +132,10 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
             <button className="px-4 py-2 border-2 m-auto border-gray-900">
               Log in
             </button>
-            <div className="m-auto hover:cursor-pointer" onClick={flipToRegisterModal}>
+            <div
+              className="m-auto hover:cursor-pointer"
+              onClick={flipToRegisterModal}
+            >
               Don't have an account?{" "}
             </div>
           </div>

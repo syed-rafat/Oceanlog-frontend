@@ -27,7 +27,7 @@ export default function Navbar() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showRegisterModal, setShowRegisterModal] = useState(false)
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   const handleScroll = () => {
     if (window !== undefined) {
@@ -44,17 +44,10 @@ export default function Navbar() {
     }
   };
 
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    // TODO: add login functionality
-
-  };
-
   const flipToRegisterModal = () => {
-    console.log("flip to register modal")
     setShowLoginModal(false);
     setShowRegisterModal(true);
-  }
+  };
 
   const closeRegisterModal = () => setShowRegisterModal(false);
 
@@ -71,18 +64,18 @@ export default function Navbar() {
       {/* Login Modal */}
 
       {showLoginModal && (
-        <LoginModal closeModal={closeLoginModal} flipToRegisterModal={flipToRegisterModal} />
+        <LoginModal
+          closeModal={closeLoginModal}
+          flipToRegisterModal={flipToRegisterModal}
+        />
       )}
 
-      {showRegisterModal && (
-        <RegisterModal closeModal={closeRegisterModal} />
-      )}
+      {showRegisterModal && <RegisterModal closeModal={closeRegisterModal} />}
 
       {/* Navbar */}
 
       <header className="h-[80px] max-w-[1220px] mx-auto top-0 left-0 right-0 bottom-0 fixed block transition-top transition transition-duration-[0.4s] z-40 font-openSans">
         <div className="relative h-full">
-          
           <section className="bg-white flex h-full justify-between shadow-lg 34em:h-[80px] 34em:px-[2rem]">
             <div className="flex h-full relative ml-[20px]">
               <Link href="/">
@@ -132,7 +125,7 @@ export default function Navbar() {
                 </li>
               </ul>
             </nav>
-            
+
             {/* Navbar icons */}
             <div className="h-full flex relative flex-row basis-[150px] justify-end">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] items-center justify-end">
