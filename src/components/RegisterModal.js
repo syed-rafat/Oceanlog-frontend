@@ -16,8 +16,7 @@ import { Toaster, toast } from "react-hot-toast";
 //   suspense: true,
 // })
 
-export default function LoginModal({ closeModal, flipToRegisterModal }) {
-  //React hook form
+export default function RegisterModal({ closeModal }) {
   const {
     register,
     handleSubmit,
@@ -25,19 +24,9 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   } = useForm();
   const [user, setUser] = useState(null);
 
-  // const setUser = useAuthorStore((state) => state.setUser);
-  const username = useAuthorStore((state) => state.username);
-  // const user = useAuthorStore((state) => state.user);
-
   const [logged, setLogged] = useState(false);
-
-  const accessToken = useAuthorStore((state) => state.acessToken);
-  const setToken = useAuthorStore((state) => state.setToken);
-
-  // const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
   const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
-
-  //login function that fetches the api, save them in localstorage then set global variable in store
+  //React hook form
 
   function authorizer(data) {
     if (data.detail) {
@@ -56,7 +45,18 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
     }
   }
 
-  const onSubmit = (d) => {
+  const onSubmit = async (data) => {
+    const response = await fetch(`${process.env.BACKEND_URL}user/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), //need to use JSON.stringify() before sending data
+    });
+    const res = await response.json();
+    console.log(res, "result of register function");
+
+    const login_obj = { username: res.username, password: data.password };
     const login = async (data) => {
       try {
         const headers = {
@@ -76,33 +76,28 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         // console.warn(username);
         // console.warn(user);
       } catch (error) {
+        console.log(error);
         toast.error("Wrong credentials entered.");
       }
     };
 
-    login(d);
-
-    // console.log(d)
+    login(login_obj);
   };
 
   useEffect(() => {
     //redirects
     if (logged) {
+      console.log("logged in");
       const id = getUserId();
       Router.push(`/author/${id}/`);
     }
   });
-  // setToken(data.access, data.refresh)
-  // const actoken = "bearer" + localStorage.getItem("accesstoken")
-  // console.log(actoken)
-
-  // const bctoken = localStorage.getItem("refreshtoken")
 
   return (
     <div className="transition-all">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="w-full h-full flex justify-center bg-opacity-90 bg-black fixed z-50 transition-all">
-          <div className="w-[25rem] h-[34rem] mx-auto z-50 fixed mt-10 bg-white shadow-white border shadow-sm p-0 flex flex-col justify-items-start">
+          <div className="w-[25rem] h-[40rem] mx-auto z-50 fixed mt-10 bg-white shadow-white border shadow-sm p-0 flex flex-col justify-items-start">
             {/* Cross button */}
             <button
               className="absolute top-0 right-0 h-8 w-8"
@@ -128,10 +123,23 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               name="username"
               autoFocus
               {...register("username", {
-                required: "Please enter a job title",
+                required: "Please enter a unique username",
               })}
               className="border-2 border-neutral-700 border-opacity-60 bg-slate-300 bg-opacity-60 mx-10 my-1 p-2 hover::rounded-md"
             ></input>
+
+            <label className="mx-auto text-lg font-merriweather mb-1 mt-2">
+              Enter your email
+            </label>
+            <input
+              name="email"
+              autoFocus
+              {...register("email", {
+                required: "Please enter an email",
+              })}
+              className="border-2 border-neutral-700 border-opacity-60 bg-slate-300 bg-opacity-60 mx-10 my-1 p-2 hover::rounded-md"
+            ></input>
+
             <label className="mx-auto text-lg font-merriweather mb-1 mt-2">
               Password
             </label>
@@ -141,12 +149,9 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               {...register("password")}
               className="border-2 border-neutral-700 border-opacity-60 bg-slate-300 bg-opacity-60 mx-10 my-1 p-2 hover::rounded-md"
             ></input>
-            <button className="px-4 py-2 border-2 m-auto border-gray-900">
-              Log in
+            <button className="px-4 py-2 border-2 m-auto border-gray-900 pointer-events-auto">
+              Sign up
             </button>
-            <div className="m-auto hover:cursor-pointer" onClick={flipToRegisterModal}>
-              Don't have an account?{" "}
-            </div>
           </div>
         </div>
       </form>
@@ -154,14 +159,3 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
     </div>
   );
 }
-
-// To redirect to profile
-// import Router from 'next/router'
-//
-// ...
-// useEffect(() => {
-//  const {pathname} = Router
-//  if(pathname == '/' ){
-//  Router.push('/hello-nextjs')
-//  }
-//  });

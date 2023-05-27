@@ -8,6 +8,7 @@ import { RiSearch2Line } from "react-icons/ri";
 import styles from "../../styles/Navbar/Navbar.module.css";
 import Image from "next/image";
 import LoginModal from "./LoginModal";
+import RegisterModal from "./RegisterModal";
 
 /**
  * TODO: Add hide on scroll to navbar, currently it is not wokring, have to debug the code
@@ -25,7 +26,8 @@ export default function Navbar() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false)
 
   const handleScroll = () => {
     if (window !== undefined) {
@@ -45,10 +47,18 @@ export default function Navbar() {
   const handleSubmit = (event) => {
     // event.preventDefault();
     // TODO: add login functionality
-    console.log(event);
+
   };
 
-  const closeModal = () => setShowModal(false);
+  const flipToRegisterModal = () => {
+    console.log("flip to register modal")
+    setShowLoginModal(false);
+    setShowRegisterModal(true);
+  }
+
+  const closeRegisterModal = () => setShowRegisterModal(false);
+
+  const closeLoginModal = () => setShowLoginModal(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -60,8 +70,12 @@ export default function Navbar() {
     <div className="relative top-0">
       {/* Login Modal */}
 
-      {showModal && (
-        <LoginModal closeModal={closeModal} />
+      {showLoginModal && (
+        <LoginModal closeModal={closeLoginModal} flipToRegisterModal={flipToRegisterModal} />
+      )}
+
+      {showRegisterModal && (
+        <RegisterModal closeModal={closeRegisterModal} />
       )}
 
       {/* Navbar */}
@@ -118,6 +132,7 @@ export default function Navbar() {
                 </li>
               </ul>
             </nav>
+            
             {/* Navbar icons */}
             <div className="h-full flex relative flex-row basis-[150px] justify-end">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] items-center justify-end">
@@ -131,7 +146,7 @@ export default function Navbar() {
                 <li className="text-center items-center flex relative h-full ml-[0.5em] mr-[0.5em] justify-center">
                   <button
                     className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer"
-                    onClick={() => setShowModal(true)}
+                    onClick={() => setShowLoginModal(true)}
                   >
                     <AiOutlineUser size={28} />
                   </button>
