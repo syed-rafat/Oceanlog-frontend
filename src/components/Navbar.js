@@ -24,9 +24,6 @@ export default function Navbar() {
   const [logged, setlogged] = useState(false);
   const isLogged = useAuthorStore((state) => state.logged);
 
-  // State for Search
-  const [searchResults, setSearchResults] = useState([]);
-
   // States for Login and Registration Modals
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
@@ -58,25 +55,6 @@ export default function Navbar() {
   const closeRegisterModal = () => setShowRegisterModal(false);
   const closeLoginModal = () => setShowLoginModal(false);
 
-  // Search Logic
-  const searchUrl = process.env.BACKEND_ROOT + "/content/search/";
-
-  const handleSearch = async (query) => {
-    try {
-      const response = await fetch(`${searchUrl}?search=${query}`);
-      const data = await response.json();
-      console.log(searchResults)
-      setSearchResults(data);
-
-      // router.push({
-      //   pathname: "/search",
-      //   state: searchResults
-      // });
-
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
-  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -86,9 +64,6 @@ export default function Navbar() {
 
   return (
     <div className="relative top-0">
-
-      {/* Search Bar */}
-      <SearchComponent handleSearch={handleSearch} searchResults={searchResults} />
       {/* Login Modal */}
 
       {showLoginModal && (
@@ -157,8 +132,10 @@ export default function Navbar() {
             {/* Navbar icons */}
             <div className="h-full flex relative flex-row basis-[150px] justify-end">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] items-center justify-end">
+
+                {/* Search button */}
                 <li className="text-center items-center flex relative h-full ml-[0.5em] mr-[0.5em] justify-center">
-                  <button className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer list-none">
+                  <button onClick={()=> router.push("/search")} className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer list-none">
                     <RiSearch2Line size={22} />
                   </button>
                 </li>
