@@ -4,37 +4,42 @@ import { useContext } from "react";
 import { useAuthorStore } from "../store/userContext";
 import { useRouter } from "next/router";
 import { AiOutlineUser } from "react-icons/ai";
-import { RiSearch2Line } from "react-icons/ri";
+import { RiSearch2Line, RiSoundcloudLine } from "react-icons/ri";
 import styles from "../../styles/Navbar/Navbar.module.css";
 import Image from "next/image";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+import SearchComponent from "./SearchComponent";
 
 /**
  * TODO: Add hide on scroll to navbar, currently it is not wokring, have to debug the code
- * TODO: Change navbar css to tailwind one
  * @description this is  the nvaigation bar component which is used in _document.js
  */
 
 //top navbar
 export default function Navbar() {
+  const router = useRouter();
+
   // const { user, username } = useContext(UserContext);
   const [logged, setlogged] = useState(false);
   const isLogged = useAuthorStore((state) => state.logged);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // State for Search
+  const [searchResults, setSearchResults] = useState([]);
+
+  // States for Login and Registration Modals
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+  // States for Scrolling behavior
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   const handleScroll = () => {
     if (window !== undefined) {
       const currentScrollPos = window.scrollY;
 
       if (currentScrollPos > prevScrollPos) {
-        console.warn("visible", visible);
         setVisible(false);
       } else {
         setVisible(true);
@@ -44,14 +49,34 @@ export default function Navbar() {
     }
   };
 
+  // Login and Registration Modal Logic
   const flipToRegisterModal = () => {
     setShowLoginModal(false);
     setShowRegisterModal(true);
   };
 
   const closeRegisterModal = () => setShowRegisterModal(false);
-
   const closeLoginModal = () => setShowLoginModal(false);
+
+  // Search Logic
+  const searchUrl = process.env.BACKEND_ROOT + "/content/search/";
+
+  const handleSearch = async (query) => {
+    try {
+      const response = await fetch(`${searchUrl}?search=${query}`);
+      const data = await response.json();
+      console.log(searchResults)
+      setSearchResults(data);
+
+      // router.push({
+      //   pathname: "/search",
+      //   state: searchResults
+      // });
+
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -61,6 +86,9 @@ export default function Navbar() {
 
   return (
     <div className="relative top-0">
+
+      {/* Search Bar */}
+      <SearchComponent handleSearch={handleSearch} searchResults={searchResults} />
       {/* Login Modal */}
 
       {showLoginModal && (

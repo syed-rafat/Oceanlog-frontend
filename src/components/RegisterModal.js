@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import Head from "next/head";
 import Router from "next/router";
 import axiosInstance from "../lib/axiosInstance";
-//to test axios, will remove later
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Link from "next/link";
@@ -12,10 +11,10 @@ import axios from "axios";
 import getUserId from "../lib/getUser";
 import Image from "next/image";
 import { Toaster, toast } from "react-hot-toast";
-// const axiosInstance = dynamic(() => import('../src/lib/axiosInstance'), {
-//   suspense: true,
-// })
 
+/**
+ * @description Registration Modal used in Navbar.js
+ */
 export default function RegisterModal({ closeModal }) {
   const {
     register,
@@ -35,7 +34,6 @@ export default function RegisterModal({ closeModal }) {
     if (typeof window !== "undefined") {
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
-      console.warn("authorizer is executed, data here");
       fetch(`${process.env.BACKEND_URL}user-info/`, {
         method: "GET",
         headers: {

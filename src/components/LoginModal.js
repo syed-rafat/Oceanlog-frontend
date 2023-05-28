@@ -12,9 +12,10 @@ import axios from "axios";
 import getUserId from "../lib/getUser";
 import Image from "next/image";
 import { Toaster, toast } from "react-hot-toast";
-// const axiosInstance = dynamic(() => import('../src/lib/axiosInstance'), {
-//   suspense: true,
-// })
+
+/**
+ * @description Login Modal used in Navbar.js
+ */
 
 export default function LoginModal({ closeModal, flipToRegisterModal }) {
   //React hook form
