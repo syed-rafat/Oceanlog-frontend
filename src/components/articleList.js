@@ -20,7 +20,6 @@ import axios from "axios";
 export default function HomeArticle({ data }) {
   const [author, setAuthor] = useState("");
 
-
   return (
     <div className="flex flex-wrap lg:flex-col lg:w-full lg:p-auto">
       {data.map((article) => (

@@ -10,6 +10,7 @@ import Image from "next/image";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import SearchComponent from "./SearchComponent";
+import OptionModal from "./OptionModal";
 
 /**
  * TODO: Add hide on scroll to navbar, currently it is not wokring, have to debug the code
@@ -23,6 +24,9 @@ export default function Navbar() {
   // const { user, username } = useContext(UserContext);
   const [logged, setlogged] = useState(false);
   const isLogged = useAuthorStore((state) => state.logged);
+
+  // State for OptionModal
+  const [showOption, setShowOption] = useState(false);
 
   // States for Login and Registration Modals
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -52,10 +56,6 @@ export default function Navbar() {
     setShowRegisterModal(true);
   };
 
-  const closeRegisterModal = () => setShowRegisterModal(false);
-  const closeLoginModal = () => setShowLoginModal(false);
-
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -68,12 +68,19 @@ export default function Navbar() {
 
       {showLoginModal && (
         <LoginModal
-          closeModal={closeLoginModal}
+          closeModal={() => setShowLoginModal(false)}
           flipToRegisterModal={flipToRegisterModal}
         />
       )}
 
-      {showRegisterModal && <RegisterModal closeModal={closeRegisterModal} />}
+      {/* Register Modal */}
+      {showRegisterModal && (
+        <RegisterModal closeModal={() => setShowRegisterModal(false)} />
+      )}
+
+      {/* Option Modal  */}
+
+      {showOption && <OptionModal closeModal={() => setShowOption(false)} />}
 
       {/* Navbar */}
 
@@ -132,10 +139,12 @@ export default function Navbar() {
             {/* Navbar icons */}
             <div className="h-full flex relative flex-row basis-[150px] justify-end">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] items-center justify-end">
-
                 {/* Search button */}
                 <li className="text-center items-center flex relative h-full ml-[0.5em] mr-[0.5em] justify-center">
-                  <button onClick={()=> router.push("/search")} className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer list-none">
+                  <button
+                    onClick={() => router.push("/search")}
+                    className="border-0 border-r-0 outline-0 p-0 bg-transparent text-inherit cursor-pointer list-none"
+                  >
                     <RiSearch2Line size={22} />
                   </button>
                 </li>
@@ -151,9 +160,10 @@ export default function Navbar() {
                 </li>
                 {/* hamburger menu */}
                 <li className="flex relative items-center left-0 right-0 h-full ml-[0.5em] mr-[0.5em] justify-center">
-                  <div className="flex relative h-[35px] w-[35px] py-[8px] transition-all duration-200 hover:py-0">
+                  <div className="flex relative h-[35px] w-[35px] py-[8px] transition-all duration-200 hover:py-0" aria-haspopup="Menu">
                     <a
                       href="#"
+                      onClick={() => setShowOption(true)}
                       className="text-neutral-400 h-full w-[15px] mx-auto z-50 relative flex flex-col justify-around items-center"
                     >
                       <span className="relative bg-neutral-500 text-neutral-400 h-[2px] w-full m-0 leading-[1.15]"></span>

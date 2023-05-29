@@ -23,7 +23,6 @@ const Search = () => {
       const data = await response.json();
       console.log(searchResults);
       setSearchResults(data);
-
     } catch (error) {
       console.error("Error fetching search results:", error);
     }
@@ -32,8 +31,10 @@ const Search = () => {
   return (
     <div>
       <div className="h-80 bg-zinc-400 p-10 pt-[10rem]">
-      <h1 className="mx-auto w-60 pb-5 text-xl font-pangram">You are searching for -</h1>
-      <SearchComponent handleSearch={handleSearch} />
+        <h1 className="mx-auto w-60 pb-5 text-xl font-pangram">
+          You are searching for -
+        </h1>
+        <SearchComponent handleSearch={handleSearch} />
       </div>
       <div className="m-10 mt-20">
         {searchResults && (
@@ -41,7 +42,9 @@ const Search = () => {
             <HomeArticle data={searchResults} />
           </div>
         )}
-        {searchResults.length === 0 && <div className="mx-auto w-40">No results found</div>}
+        {searchResults.length === 0 && (
+          <div className="mx-auto w-40">No results found</div>
+        )}
       </div>
     </div>
   );
