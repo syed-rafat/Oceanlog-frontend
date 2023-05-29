@@ -9,14 +9,15 @@ const SearchComponent = ({ handleSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='p-5 w-3/5 mx-auto'>
       <input
         type="text"
         placeholder="Search..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        className="bg-transparent border-b w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Enter text..."
       />
-      <button type="submit">Search</button>
+      <button type="submit" className='font-pangram mt-3 pl-5'>Search</button>
     </form>
   );
 };

@@ -4,14 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { Button } from "@mantine/core";
 // import styles from "../../../styles/Home/homearticles.module.css";
-import UserInfo from "./components/userInfo";
 import useSWR from "swr";
-import useArticleget from "../../lib/useArticleget";
-import AuthorFinder from "../AuthorProfile";
 import axios from "axios";
 
 // This component shows articles list in the front page
-//TODO: remove hardcoded link
+//TODO: remove hardcoded link of Cloudinary
 /**
  *@name {HomeArticles}
  *@description Grid of 8 articles stacked in 2 column on homepage.  Comp - <UserInfo>
@@ -23,25 +20,6 @@ import axios from "axios";
 export default function HomeArticle({ data }) {
   const [author, setAuthor] = useState("");
 
-  const url = process.env.BACKEND_URL;
-  const listurl = process.env.BACKEND_URL + "list";
-
-  // useEffect(() => {
-  //   // setLoading(true);
-  //   console.log(url);
-  //   axios.get("https://oclogbackend.azurewebsites.net/content/list")
-  //     // .then((res) => res.json())
-  //     .then((res) => {
-  //       setData(res.data.results);
-  //       setLoading(false);
-  //       console.log(data, "data.results >");
-  //     });
-  // }, []);
-
-  // if (loading) return <p>loading</p>;
-
-  // if (!data) return <p>loading</p>;
-  // if (data) return <p>loading</p>;
 
   return (
     <div className="flex flex-wrap lg:flex-col lg:w-full lg:p-auto">

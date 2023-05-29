@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import SearchComponent from '../src/components/SearchComponent';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import SearchComponent from "../src/components/SearchComponent";
+import HomeArticle from "../src/components/articleList";
 
 /**
  * @description Search Component used in Search.js
@@ -10,7 +11,6 @@ import SearchComponent from '../src/components/SearchComponent';
  * import SearchComponent from '../components/SearchComponent';
  */
 const Search = () => {
-
   const router = useRouter();
 
   const [searchResults, setSearchResults] = useState(false);
@@ -21,13 +21,8 @@ const Search = () => {
     try {
       const response = await fetch(`${searchUrl}?search=${query}`);
       const data = await response.json();
-      console.log(searchResults)
+      console.log(searchResults);
       setSearchResults(data);
-
-      // router.push({
-      //   pathname: "/search",
-      //   state: searchResults
-      // });
 
     } catch (error) {
       console.error("Error fetching search results:", error);
@@ -36,12 +31,18 @@ const Search = () => {
 
   return (
     <div>
-      <h1>My Page</h1>
+      <div className="h-80 bg-zinc-400 p-10 pt-[10rem]">
+      <h1 className="mx-auto w-60 pb-5 text-xl font-pangram">You are searching for -</h1>
       <SearchComponent handleSearch={handleSearch} />
-      {(searchResults) && <div>{searchResults.map((result) => (
-        <div key={result.id}>{result.title}</div>
-      ))}</div>}
-      {(searchResults.length === 0) && <div>No results found</div>}
+      </div>
+      <div className="m-10 mt-20">
+        {searchResults && (
+          <div className="w-1/2 mx-auto lg:w-2/3">
+            <HomeArticle data={searchResults} />
+          </div>
+        )}
+        {searchResults.length === 0 && <div>No results found</div>}
+      </div>
     </div>
   );
 };
