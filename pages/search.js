@@ -41,7 +41,7 @@ const Search = () => {
             <HomeArticle data={searchResults} />
           </div>
         )}
-        {searchResults.length === 0 && <div>No results found</div>}
+        {searchResults.length === 0 && <div className="mx-auto w-40">No results found</div>}
       </div>
     </div>
   );

@@ -110,7 +110,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               />
             </div>
             <div className="w-2/3 h-[1px] mx-auto bg-slate-700 opacity-20 mb-4"></div>
-            <label className="mx-auto text-lg font-merriweather mb-1 mt-8">
+            <label className="mx-auto text-lg mb-1 mt-8 font-pangram">
               Enter your username
             </label>
             <input
@@ -121,7 +121,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               })}
               className="border-2 border-neutral-700 border-opacity-60 bg-slate-300 bg-opacity-60 mx-10 my-1 p-2 hover::rounded-md"
             ></input>
-            <label className="mx-auto text-lg font-merriweather mb-1 mt-2">
+            <label className="mx-auto text-lg mb-1 mt-2 font-pangram">
               Password
             </label>
             <input
@@ -130,11 +130,11 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               {...register("password")}
               className="border-2 border-neutral-700 border-opacity-60 bg-slate-300 bg-opacity-60 mx-10 my-1 p-2 hover::rounded-md"
             ></input>
-            <button className="px-4 py-2 border-2 m-auto border-gray-900">
+            <button className="px-4 py-2 border-2 m-auto border-gray-900 font-pangram">
               Log in
             </button>
             <div
-              className="m-auto hover:cursor-pointer"
+              className="m-auto font-pangram hover:cursor-pointer"
               onClick={flipToRegisterModal}
             >
               Don't have an account?{" "}
