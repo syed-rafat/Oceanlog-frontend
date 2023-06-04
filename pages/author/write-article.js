@@ -47,8 +47,8 @@ export default function WritePost() {
 
   return (
     <>
-      <div className="w-full h-40 relative bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-200 via-emerald-200 to-yellow-200 opacity-50"></div>
-      <div className="relative p-6 mx-auto w-1/2 shadow-2xl border-2">
+      <div className="w-full h-40 relative bg-zinc-400"></div>
+      <div className="relative mt-8 rounded-2xl p-6 mx-auto w-1/2 border-2 bg-[url('/bg-grain.jpg')]">
         <h2 className="text-3xl mb-9 opacity-90">
           Write an article{" "}
         </h2>

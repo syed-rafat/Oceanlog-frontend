@@ -11,7 +11,7 @@ export default function Authorarticles(props) {
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const articlesLink = process.env.BACKEND_URL + "authors/" + props.id;
+  const articlesLink = process.env.BACKEND_URL + "user-articles/" + props.id;
 
   useEffect((_) => {
     axios
@@ -25,6 +25,7 @@ export default function Authorarticles(props) {
   if (loading) {
     return <h3>Loading</h3>;
   }
+
 
   return (
     <div className="m-2 p-2">

@@ -16,13 +16,7 @@ export default function AuthorProfile() {
   const router = useRouter();
   const { pid } = router.query;
   const profileRoute = process.env.BACKEND_URL + "authors/" + pid;
-  // const articlesLink = `http://127.0.0.1:8000/content/user-articles/${pid}/`;
 
-  // const base = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3NTY4Mjc1LCJpYXQiOjE2Njc1Njc5NzUsImp0aSI6IjA4ZWViNjdjYWQxMzQ2NThiOGU3NGI1ZmVjNjgyYTVkIiwidXNlcl9pZCI6MX0.HCxcpQbTbXlJh-VjmYTyaSDXczfXYahNO-pttx3qnEM"
-  // const obj = atob(base.split('.')[1])
-  // console.log(obj)
-
-  //components did mount
 
   useEffect(
     (_) => {
@@ -31,10 +25,8 @@ export default function AuthorProfile() {
           .get(profileRoute)
           .then((res) => setData(res.data))
           .then((_) => setLoader(false))
-          .catch((err) => console.log("error", err));
-        console.log("data in author profile", data);
-        // axios.get(articlesLink)
-        //   .then((res) => setArticles(res.articles));
+          .catch((err) => console.log("error in author/[pid]", err));
+
       }
     },
     [pid]
