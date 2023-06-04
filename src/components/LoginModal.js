@@ -50,7 +50,9 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         headers: {
           Authorization: `Bearer ${data.access}`,
         },
-      }).then((res) => res.json());
+      })
+        .then((res) => res.json())
+        .then((res) => setUser(res.id));
     }
   }
 
@@ -63,8 +65,6 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         const res = await axios.post(tokenurl, JSON.stringify(data), {
           headers: headers,
         });
-
-        console.log("res.data", res.data);
 
         authorizer(res.data);
 
@@ -82,7 +82,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   useEffect(() => {
     //redirects
     if (logged) {
-      const id = getUserId();
+      const id = user;
       Router.push(`/author/${id}/`);
     }
   });

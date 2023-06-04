@@ -25,31 +25,31 @@ const OptionModal = ({ closeModal }) => {
           <div className="p-10 border-b border-dotted">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-cyan-300"
+              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
             >
               Physical Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dashed">
+          <div className="p-10 border-b border-dotted">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-cyan-300"
+              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
             >
               Biological Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dashed">
+          <div className="p-10 border-b border-dotted">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-cyan-300"
+              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
             >
               Chemical Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dashed">
+          <div className="p-10 border-b border-dotted">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-cyan-300"
+              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
             >
               Geological Oceanography
             </a>
