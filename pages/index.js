@@ -19,15 +19,13 @@ export default function Home({ data }) {
         <Homepage data={data} />
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          id="accent-lime-300"
-        >
-          Powered by Rafat@SUST
-        </a>
+      <footer className="bg-zinc-600 text-amber-50 p-10 mt-16">
+        <div className="mx-auto w-1/3">
+        <div className="text-sm"> OceanLog - Developed and maintained by </div>
+        <h2 className="pt-5 text-lg">Syed Rafat</h2>
+        <p className="text-yellow-100">hoqrafat@gmail.com</p>
+        <div className="left-0 pt-2 text-sm"> © 2022 OceanLog. All rights reserved. </div>
+        </div>
       </footer>
     </div>
   );

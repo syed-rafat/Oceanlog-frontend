@@ -36,7 +36,8 @@ export default function CategoryList() {
     return <h1>Loading</h1>;
   }
 
-  return (
+  return (<div>
+    <main className="mb-16">
     <div className="p-0 m-0 relative flex flex-col">
       {/* Banner */}
       <div className="w-full h-34">
@@ -85,6 +86,17 @@ export default function CategoryList() {
           </div>
         </div>
       </div>
+    </div>
+    </main>
+
+    <footer className="bg-zinc-600 text-amber-50 p-10">
+        <div className="mx-auto w-1/3">
+        <div className="text-sm"> OceanLog - Developed and maintained by </div>
+        <h2 className="pt-5 text-lg">Syed Rafat</h2>
+        <p className="text-yellow-100">hoqrafat@gmail.com</p>
+        <div className="left-0 pt-2 text-sm"> © 2022 OceanLog. All rights reserved. </div>
+        </div>
+      </footer>
     </div>
   );
 }
