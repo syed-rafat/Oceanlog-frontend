@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-//trying the adapter mentioned in doc
 
 const imageurl = process.env.BACKEND_URL + "image/";
 class MyUploadAdapter {
@@ -126,14 +125,16 @@ export default function Editor(props) {
   // };
   // config = {editorConfiguration}
 
+
+
   return (
-    <div className="h-full">
+    <div className="ck-content">
       {props.loaded ? (
         <CKEditor
           editor={ClassicEditor}
-          className="h-full"
           config={{ extraPlugins: [MyCustomUploadAdapterPlugin] }}
           data=""
+          className=""
           onReady={(editor) => {
             // You can store the "editor" and use when it is needed.
             console.log("Editor is ready to use!", editor);
@@ -141,7 +142,7 @@ export default function Editor(props) {
           onChange={(event, editor) => {
             const data = editor.getData();
             props.setValue("content", data)
-            console.log('onchange eventtt')
+            console.log('onchange event')
             console.log({ event, editor, data });
           }}
           onBlur={(event, editor) => {

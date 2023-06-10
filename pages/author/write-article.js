@@ -26,7 +26,6 @@ export default function WritePost() {
     formData.append("category", data.category)
     formData.append("description", data.description)
     formData.append("tag", "1")
-    console.log(formData, "Formdata");
 
 
     axiosInstance.post('content/articles/', formData, {
@@ -52,7 +51,6 @@ export default function WritePost() {
         <h2 className="text-3xl mb-9 opacity-90">
           Write an article{" "}
         </h2>
-
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col opacity-90"
@@ -79,7 +77,7 @@ export default function WritePost() {
           <input
             type="file"
             className="border-b-2 mb-10 p-2"
-            placeholder="Select and upload an image"
+            placeholder="Select and upload a cover image"
             {...register("coverImage")}
           ></input>
           <label className="text-xl mb-5 text-teal-900">
@@ -99,11 +97,11 @@ export default function WritePost() {
             Write your article
           </label>
           <textarea
-            className="h-0 mb-6"
+            className="remove-all"
             id="content"
             {...register("content")}
           ></textarea>
-          <Editor loaded={loaded} setValue={setValue} className="h-full" />
+          <Editor loaded={loaded} setValue={setValue}/>
           <input
             type="submit"
             className="block border m-6 p-2 bg-emerald-800 bg-opacity-20 rounded-2xl hover:bg-opacity-40"

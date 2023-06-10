@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'ckeditor-tailwind-reset/ckeditor-tailwind-reset';
+
+
 @font-face {
   font-family: "PangramSans";
   src: url("../public/fonts/PPPangramSans-NarrowSemibold.otf");
@@ -14,19 +17,13 @@
 }
 
 html {
-  font-size: 100%;
   box-sizing: border-box;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Merriweather', serif;
+  /* font-family: 'Merriweather', serif; */
   background-color: rgb(255, 255, 255);
-  font-size: 100%;
-  line-height: 1.7;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
 }
@@ -38,51 +35,6 @@ h1 {
   font-family: "Playfair Display", serif;
 }
 
-/* a {
-  color: darkslategray;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: rgb(92, 148, 150);
-} */
-
-
-
-.responsive-wrapper {
-	width: 90%;
-	max-width: 1280px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 div {
 	display: block;
 }
-
-p {
-  line-height: 1.875;
-}
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.footer {
-	background-color: azure;
-}
-footer {
-	background-color: aliceblue;
-	bottom: 0px;
-}
-
-@media (min-width: 34em){
-  .outer_container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-      margin-top: 3rem;
-      position: relative;
-  }
-  }

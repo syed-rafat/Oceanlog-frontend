@@ -13,6 +13,21 @@ export default function HomeSidebar() {
                 <a href="https://journals.ametsoc.org/view/journals/phoc/52/12/phoc.52.issue-12.xml" className="my-2">Journal of Physical Oceanography</a>
                 </div>
             </section>
+            <section>
+                <ul>
+                    <li>
+                        <Link href="/about">
+                            <a className="text-xl font-pangram">About</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/contact">
+
+                            <a className="text-xl font-pangram">Contact</a>
+                        </Link>
+                    </li>
+                </ul>
+            </section>
         </div>
     )
 }

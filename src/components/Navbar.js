@@ -5,7 +5,6 @@ import { useAuthorStore } from "../store/userContext";
 import { useRouter } from "next/router";
 import { AiOutlineUser } from "react-icons/ai";
 import { RiSearch2Line, RiSoundcloudLine } from "react-icons/ri";
-import styles from "../../styles/Navbar/Navbar.module.css";
 import Image from "next/image";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
