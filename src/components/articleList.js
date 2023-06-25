@@ -2,10 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-// import { Button } from "@mantine/core";
-// import styles from "../../../styles/Home/homearticles.module.css";
-import useSWR from "swr";
-import axios from "axios";
+
 
 // This component shows articles list in the front page
 //TODO: remove hardcoded link of Cloudinary

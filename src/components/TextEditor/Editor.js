@@ -119,10 +119,10 @@ function MyCustomUploadAdapterPlugin(editor) {
 
 
 export default function Editor(props) {
-  // const editorConfiguration = {
-  //     // toolbar: [ 'bold', 'italic' ]
-  //     plugins: [ 'SimpleUploadAdapter' ]
-  // };
+  const editorConfiguration = {
+      // toolbar: [ 'bold', 'italic' ]
+      plugins: [ 'SimpleUploadAdapter' ]
+  };
   // config = {editorConfiguration}
 
 

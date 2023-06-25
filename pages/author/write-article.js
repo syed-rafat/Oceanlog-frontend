@@ -18,6 +18,8 @@ export default function WritePost() {
     setValue,
   } = useForm();
 
+  // TODO: Change tags to include form data
+
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("coverImage", data.coverImage[0]);

@@ -9,7 +9,7 @@ import Image from "next/image";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import SearchComponent from "./SearchComponent";
-import OptionModal from "./OptionModal";
+import MainMenuModal from "./MainMenuModal";
 
 /**
  * TODO: Add hide on scroll to navbar, currently it is not wokring, have to debug the code
@@ -79,7 +79,7 @@ export default function Navbar() {
 
       {/* Option Modal  */}
 
-      {showOption && <OptionModal closeModal={() => setShowOption(false)} />}
+      {showOption && <MainMenuModal closeModal={() => setShowOption(false)} />}
 
       {/* Navbar */}
 

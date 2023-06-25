@@ -8,48 +8,48 @@ const OptionModal = ({ closeModal }) => {
         <div className="absolute h-0.5 w-4 bg-gray-500 transform rotate-45 top-4"></div>
         <div className="absolute h-0.5 w-4 bg-gray-500 transform -rotate-45 bottom-4"></div>
       </button>
-      <div className="mx-auto mb-3 pt-8 flex w-1/3">
+      <div className="mx-auto pl-20 mb-3 pt-8 flex w-1/3">
         <Image
           src="/OCEANLOG_LOGO.svg"
-          width={100}
-          height={100}
-          className="bg-white rounded-2xl p-5"
+          width={80}
+          height={80}
+          className="bg-white rounded-full p-10"
         />
-        <h1 className="text-4xl pt-8 pl-5">OceanLog</h1>
+        <h1 className="text-4xl pt-8 pl-5 font-pangram">OceanLog</h1>
       </div>
       <div className="w-full h-[40rem] p-10 flex">
         {/* inner container */}
 
         {/* Category */}
-        <section className="w-auto mx-auto">
-          <div className="p-10 border-b border-dotted">
+        <section className="w-auto mx-auto text-cyan-100 font-pangram">
+          <div className="p-10 border-b">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
+              className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Physical Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dotted">
+          <div className="p-10 border-b">
             <a
-              href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
+              href="/category/3"
+              className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Biological Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dotted">
+          <div className="p-10 border-b">
             <a
-              href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
+              href="/category/2"
+              className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Chemical Oceanography
             </a>
           </div>
-          <div className="p-10 border-b border-dotted">
+          <div className="p-10 border-b">
             <a
               href="/category/1"
-              className="text-4xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors text-cyan-300 hover:text-white"
+              className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Geological Oceanography
             </a>
