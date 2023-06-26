@@ -15,7 +15,7 @@ const SearchComponent = ({ handleSearch }) => {
         placeholder="Search..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="bg-transparent border-b w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Enter text..."
+        className="bg-transparent border-b w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
       />
       <button type="submit" className='font-pangram mt-3 pl-5'>Search</button>
     </form>
