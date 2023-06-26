@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const OptionModal = ({ closeModal }) => {
   return (
@@ -23,36 +24,36 @@ const OptionModal = ({ closeModal }) => {
         {/* Category */}
         <section className="w-auto mx-auto text-cyan-100 font-pangram">
           <div className="p-10 border-b">
-            <a
+            <Link
               href="/category/1"
               className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Physical Oceanography
-            </a>
+            </Link>
           </div>
           <div className="p-10 border-b">
-            <a
+            <Link
               href="/category/3"
               className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Biological Oceanography
-            </a>
+            </Link>
           </div>
           <div className="p-10 border-b">
-            <a
+            <Link
               href="/category/2"
               className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Chemical Oceanography
-            </a>
+            </Link>
           </div>
           <div className="p-10 border-b">
-            <a
+            <Link
               href="/category/1"
               className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
               Geological Oceanography
-            </a>
+            </Link>
           </div>
         </section>
         <section></section>

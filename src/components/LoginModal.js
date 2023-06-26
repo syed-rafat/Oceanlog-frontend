@@ -137,7 +137,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
               className="m-auto font-pangram hover:cursor-pointer"
               onClick={flipToRegisterModal}
             >
-              Don't have an account?{" "}
+              Don`&apos;`t have an account?{" "}
             </div>
           </div>
         </div>

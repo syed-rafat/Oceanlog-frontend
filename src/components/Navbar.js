@@ -105,36 +105,36 @@ export default function Navbar() {
             <nav className="flex h-full relative">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] lg:hidden">
                 <li className="text-center items-center flex relative h-full">
-                  <a
+                  <Link
                     href="/category/1"
                     className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
                     Physical{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
-                  <a
+                  <Link
                     href="/category/3"
                     className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
                     Biological{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
-                  <a
+                  <Link
                     href="/category/2"
                     className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
                     Chemical{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
-                  <a
+                  <Link
                     href="/category/4"
                     className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
                     Geological
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
