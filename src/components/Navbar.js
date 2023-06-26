@@ -14,6 +14,10 @@ import MainMenuModal from "./MainMenuModal";
 /**
  * TODO: Add hide on scroll to navbar, currently it is not wokring, have to debug the code
  * @description this is  the nvaigation bar component which is used in _document.js
+ * category 1 = Physical
+ * category 2 = Chemical
+ * category 3 = Biological
+ * category 4 = Geological
  */
 
 //top navbar
