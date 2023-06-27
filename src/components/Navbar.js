@@ -105,35 +105,35 @@ export default function Navbar() {
             <nav className="flex h-full relative">
               <ul className="m-0 p-0 flex relative h-full flex-row pl-[40px] lg:hidden">
                 <li className="text-center items-center flex relative h-full">
-                  <Link
-                    href="/category/1"
-                    className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
-                  >
-                    Physical{" "}
+                  <Link href="/category/1">
+                    <a className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800">
+                      Physical{" "}
+                    </a>
                   </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
-                  <Link
-                    href="/category/3"
-                    className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
-                  >
-                    Biological{" "}
+                  <Link href="/category/3">
+                    <a className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800">
+                      Biological
+                    </a>
                   </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
                   <Link
                     href="/category/2"
-                    className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
-                    Chemical{" "}
+                    <a className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800">
+                      Chemical
+                    </a>
                   </Link>
                 </li>
                 <li className="text-center items-center flex relative h-full">
                   <Link
                     href="/category/4"
-                    className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800"
                   >
+                    <a className="text-neutral-800 text-2xl h-full overflow-hidden flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-teal-800">
                     Geological
+                    </a>
                   </Link>
                 </li>
               </ul>
@@ -163,7 +163,10 @@ export default function Navbar() {
                 </li>
                 {/* hamburger menu */}
                 <li className="flex relative items-center left-0 right-0 h-full ml-[0.5em] mr-[0.5em] justify-center">
-                  <div className="flex relative h-[35px] w-[35px] py-[8px] transition-all duration-200 hover:py-0" aria-haspopup="Menu">
+                  <div
+                    className="flex relative h-[35px] w-[35px] py-[8px] transition-all duration-200 hover:py-0"
+                    aria-haspopup="Menu"
+                  >
                     <a
                       href="#"
                       onClick={() => setShowOption(true)}

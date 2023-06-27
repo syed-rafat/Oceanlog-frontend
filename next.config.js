@@ -4,8 +4,8 @@ const nextConfig = {
     // For now adding local db
     // BACKEND_URL: "https://oclogbackend.azurewebsites.net/content/",
     // BACKEND_ROOT: "https://oclogbackend.azurewebsites.net",
-    BACKEND_ROOT: "http://localhost:8000",
-    BACKEND_URL: "http://localhost:8000/content/",
+    BACKEND_ROOT: "https://ocean-log-backend.vercel.app/",
+    BACKEND_URL: "https://ocean-log-backend.vercel.app/content/",
   },
   reactStrictMode: true,
   swcMinify: true,

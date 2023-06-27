@@ -34,7 +34,7 @@ export default function ArticleSingle({ data }) {
   const author = data.author.profile;
 
   return (
-    <article id="" className="bg-slate-50">
+    <article id="article" className="bg-slate-50">
       <img
         src={"https://res.cloudinary.com/dylqfbsq2/" + article.coverImage}
         alt={article.img}

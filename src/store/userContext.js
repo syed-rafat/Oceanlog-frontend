@@ -3,6 +3,10 @@ import { persist } from "zustand/middleware";
 
 // export const UserContext = createContext({ user: null, username: null })
 
+const backend_url = process.env.BACKEND_URL
+const user_info_url = backend_url + "user-info/"
+const tokenurl = process.env.BACKEND_ROOT + "api/token/"
+
 export const useAuthorStore = create(
   persist((set, get) => ({
     user: null,
@@ -10,7 +14,8 @@ export const useAuthorStore = create(
     logged: false,
     accessToken: null,
     refreshToken: null,
-    setUser: (accessToken) => {fetch("http://127.0.0.1:8000/content/user-info/", {
+    setUser: (accessToken) => {
+      fetch(backend_url, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -24,7 +29,7 @@ export const useAuthorStore = create(
     setToken: (acesstoken, refreshtoken) =>
       set({ acessToken: acesstoken, refreshToken: refreshtoken }),
     login: async (info) => {
-      const response = await fetch("http://127.0.0.1:8000/api/token/", {
+      const response = await fetch(tokenurl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +44,7 @@ export const useAuthorStore = create(
           localStorage.setItem("refreshToken", data.refresh);
           console.warn("authorizer is executed, data here");
           console.log(data);
-          fetch("http://127.0.0.1:8000/content/user-info/", {
+          fetch(user_info_url, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${data.access}`,

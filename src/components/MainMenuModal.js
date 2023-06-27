@@ -14,7 +14,7 @@ const OptionModal = ({ closeModal }) => {
           src="/OCEANLOG_LOGO.svg"
           width={80}
           height={80}
-          className="bg-white rounded-full p-10"
+          className="bg-white rounded-full"
         />
         <h1 className="text-4xl pt-8 pl-5 font-pangram">OceanLog</h1>
       </div>
@@ -26,9 +26,10 @@ const OptionModal = ({ closeModal }) => {
           <div className="p-10 border-b">
             <Link
               href="/category/1"
-              className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white"
             >
+              <a className="text-4xl h-full flex mx-[0.5em] px-[0.5em] items-center relative transition-colors hover:text-white">
               Physical Oceanography
+              </a>
             </Link>
           </div>
           <div className="p-10 border-b">

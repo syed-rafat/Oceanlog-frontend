@@ -34,6 +34,7 @@ export default function Home({ data }) {
 export async function getServerSideProps() {
   // Fetch data from external API
   const listurl = process.env.BACKEND_URL + "list";
+  console.log(listurl)
   const res = await fetch(listurl);
   const articles = await res.json();
   const data = articles.results;

@@ -10,6 +10,15 @@
   src: url("../public/fonts/PPPangramSans-NarrowSemibold.otf");
 }
 
+
+#article h2 {
+    font-size: large;
+    line-height: 1.25rem;
+    font-weight: 400;
+    padding: 2rem 0;
+  }
+
+
 *,
 *:after,
 *:before {
@@ -29,10 +38,6 @@ body {
 }
 main {
   background-color: rgb(255, 255, 255);
-}
-
-h1 {
-  font-family: "Playfair Display", serif;
 }
 
 div {
