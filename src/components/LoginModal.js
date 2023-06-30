@@ -86,7 +86,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   useEffect(() => {
     //redirects
     if (logged) {
-      const id = user;
+      const id = userID;
       Router.push(`/author/${id}/`);
     }
   });
