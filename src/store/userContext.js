@@ -23,7 +23,6 @@ export const useAuthorStore = create(
     })
       .then((res) => res.json())
       .then((res) => {
-        console.warn(res)
         set({ user: res.id, username: res.username, logged: true })});
     },
     setToken: (acesstoken, refreshtoken) =>
@@ -39,11 +38,8 @@ export const useAuthorStore = create(
       const res = await response.json();
       function authorizer(data) {
         if (typeof window !== "undefined") {
-          console.log("data got from authorizer function", data)
           localStorage.setItem("accessToken", data.access);
           localStorage.setItem("refreshToken", data.refresh);
-          console.warn("authorizer is executed, data here");
-          console.log(data);
           fetch(user_info_url, {
             method: "GET",
             headers: {

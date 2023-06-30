@@ -24,14 +24,16 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user, setUser] = useState(null);
+
+  const [userID, setUserID] = useState(null);
 
   const username = useAuthorStore((state) => state.username);
 
-  const [logged, setLogged] = useState(false);
 
   const accessToken = useAuthorStore((state) => state.acessToken);
   const setToken = useAuthorStore((state) => state.setToken);
+  const setUser = useAuthorStore((state) => state.setUser);
+  const logged = useAuthorStore((state) => state.logged);
 
   const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
 
@@ -42,9 +44,10 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
       toast.error("Wrong credentials");
     }
     if (typeof window !== "undefined") {
+      setUser(data.access)
+      setToken(data.access, data.refresh)
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
-      console.warn("authorizer is executed, data here");
       fetch(`${process.env.BACKEND_URL}user-info/`, {
         method: "GET",
         headers: {
@@ -52,7 +55,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         },
       })
         .then((res) => res.json())
-        .then((res) => setUser(res.id));
+        .then((res) => setUserID(res.id));
     }
   }
 
@@ -68,10 +71,11 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
 
         authorizer(res.data);
 
-        if (res.data.access) {
-          setLogged(true);
-        }
+        // if (res.data.access) {
+        //   setLogged(true);
+        // }
       } catch (error) {
+        console.log(error)
         toast.error("Wrong credentials entered.");
       }
     };
