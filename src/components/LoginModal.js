@@ -45,6 +45,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
     }
     if (typeof window !== "undefined") {
       setUser(data.access)
+      console.log(logged, "Store - logged variable")
       setToken(data.access, data.refresh)
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
@@ -57,6 +58,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
         .then((res) => res.json())
         .then((res) => setUserID(res.id));
     }
+    closeModal();
   }
 
   const onSubmit = (d) => {
