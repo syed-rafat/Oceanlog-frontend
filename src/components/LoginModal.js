@@ -25,7 +25,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
     formState: { errors },
   } = useForm();
 
-  const [userID, setUserID] = useState(null);
+  const user = useAuthorStore((state) => state.user);
 
   const username = useAuthorStore((state) => state.username);
 
