@@ -37,6 +37,8 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
 
   const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
 
+  console.log(logged, user, "Store - logged variable")
+
   //login function that fetches the api, save them in localstorage then set global variable in store via authorizer
 
   function authorizer(data) {
@@ -57,7 +59,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
       // })
       //   .then((res) => res.json())
       //   .then((res) => setUserID(res.id));
-      
+
     }
     closeModal();
   }
