@@ -49,15 +49,16 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
       setToken(data.access, data.refresh)
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
-    //   fetch(`${process.env.BACKEND_URL}user-info/`, {
-    //     method: "GET",
-    //     headers: {
-    //       Authorization: `Bearer ${data.access}`,
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((res) => setUserID(res.id));
-    // }
+      // fetch(`${process.env.BACKEND_URL}user-info/`, {
+      //   method: "GET",
+      //   headers: {
+      //     Authorization: `Bearer ${data.access}`,
+      //   },
+      // })
+      //   .then((res) => res.json())
+      //   .then((res) => setUserID(res.id));
+      
+    }
     closeModal();
   }
 
