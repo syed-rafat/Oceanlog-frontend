@@ -35,7 +35,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   const setUser = useAuthorStore((state) => state.setUser);
   const logged = useAuthorStore((state) => state.logged);
 
-  const tokenurl = process.env.BACKEND_ROOT + "/api/token/";
+  const tokenurl = process.env.BACKEND_ROOT + "api/token/";
 
   //login function that fetches the api, save them in localstorage then set global variable in store via authorizer
 
