@@ -25,6 +25,17 @@ module.exports = {
       '34em': {'min': '34em '},
     },
     extend: {
+      colors: {
+        ocean: {
+          50: '#A1CCD1',
+        },
+      },
+      width: {
+        calc: 'calc(100% - 1rem)',
+      },
+      height: {
+        calc: 'calc(100% - 1rem)',
+      },
       fontFamily: {
         inter: "Inter",
         workSans: "Work Sans",
