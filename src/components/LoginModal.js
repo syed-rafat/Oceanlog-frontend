@@ -99,7 +99,7 @@ export default function LoginModal({ closeModal, flipToRegisterModal }) {
   return (
     <div className="transition-all">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-full h-full flex justify-center bg-opacity-90 bg-black fixed z-50 transition-all">
+        <div className="w-full h-full flex justify-center bg-opacity-80 bg-black fixed z-50 transition-all">
           <div className="w-[25rem] h-[34rem] mx-auto z-50 fixed mt-10 bg-white shadow-white border shadow-sm p-0 flex flex-col justify-items-start">
             {/* Cross button */}
             <button
